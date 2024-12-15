@@ -1727,21 +1727,13 @@ sauce.ns('analysis', ns => {
             }
         }
         if (!date) {
-            // let chrono = await import("/src/common/chrono");
             let luxon = await import("/src/common/luxon.js");
             const dateStr = document.querySelector(".details time").textContent.trim();
-            let res = luxon.DateTime.fromFormatExplain(dateStr, "h:mm a 'on' EEEE, MMMM d, yyyy");
-            console.log(res);
-            // const res = chrono.parseDate(dateStr);
-            // if (res.isCertain()){
-            //     return res[0].start.date();
-            // }
-            // return undefined;
-            // const dateStr = document.querySelector(".details time").textContent.trim();
-            // const res = chrono.parseDate(dateStr);
-            // if (res.isCertain()){
-            //     date = res[0].start.date();
-            // }
+            // let res = luxon.DateTime.fromFormatExplain(dateStr, "h:mm a 'on' EEEE, MMMM d, yyyy");
+            let res = luxon.DateTime.fromFormat(dateStr, "h:mm a 'on' EEEE, MMMM d, yyyy");
+            if(res.isValid){
+                date = res.toJSDate();
+            }
         }
         if (!date) {
             date = await promptForActivityStart();

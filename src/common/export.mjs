@@ -2,16 +2,6 @@
 
 import * as fit from '../common/jsfit/fit.mjs';
 
-// import chrono from 'chrono-node';
-// 
-// function parseActivityDate(){
-//     const dateStr = document.querySelector(".details time").textContent.trim();
-//     const res = chrono.parseDate(dateStr);
-//     if (res.isCertain()){
-//         return res[0].start.date();
-//     }
-//     return undefined;
-// }
 
 class Serializer {
     constructor({name, desc, type, date, laps, athlete}) {
