@@ -39,6 +39,7 @@ mods:
 	cp -r $(MODS)/jsfit/src src/common/jsfit
 	cp $(MODS)/fflate/esm/browser.js src/common/fflate.mjs
 	cp $(MODS)/sauce-chartjs/dist/Chart.pretty.js src/site/chartjs/Chart.js
+	cp $(MODS)/luxon/build/es6/luxon.js src/common/luxon.js
 
 clean:
 	rm -rf $(PACKAGES) builds css

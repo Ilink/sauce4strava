@@ -25,5 +25,8 @@
     "sauce-chartjs": "https://github.com/SauceLLC/Chart.js.git#79a3f8ed1b1581c35bbae61626f0a453273d0734",
     "sauce-terser": "https://github.com/mayfield/terser.git#35dbaf580ac94e1b899314acb9df47b69159c84a",
     "webextension-locale-translator": "0.0.0"
+  },
+  "dependencies": {
+    "luxon": "^3.5.0"
   }
 }

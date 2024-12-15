@@ -1,8 +1,6 @@
 /* global Strava, sauce, jQuery, pageView */
-
 sauce.ns('analysis', ns => {
     'use strict';
-
     let _resolvePrepared;
     ns.ready = false;
     ns.prepared = new Promise(resolve => {
@@ -1727,6 +1725,23 @@ sauce.ns('analysis', ns => {
             if (realStartTime) {
                 date = new Date(realStartTime);
             }
+        }
+        if (!date) {
+            // let chrono = await import("/src/common/chrono");
+            let luxon = await import("/src/common/luxon.js");
+            const dateStr = document.querySelector(".details time").textContent.trim();
+            let res = luxon.DateTime.fromFormatExplain(dateStr, "h:mm a 'on' EEEE, MMMM d, yyyy");
+            console.log(res);
+            // const res = chrono.parseDate(dateStr);
+            // if (res.isCertain()){
+            //     return res[0].start.date();
+            // }
+            // return undefined;
+            // const dateStr = document.querySelector(".details time").textContent.trim();
+            // const res = chrono.parseDate(dateStr);
+            // if (res.isCertain()){
+            //     date = res[0].start.date();
+            // }
         }
         if (!date) {
             date = await promptForActivityStart();

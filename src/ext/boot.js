@@ -140,7 +140,8 @@ function setCustomFont(options) {
             'src/common/lib.js',
             'src/site/sync.js',
             'src/site/sparkline.js',
-            'src/site/analysis.js',
+            'src/common/chrono/chrono.js',
+            'src/site/analysis.js'
         ],
     }, {
         name: 'Segment Compare',

@@ -11,7 +11,6 @@ if (!module) {
     throw new Error('Invalid module');
 }
 
-
 async function init() {
     // Carefully optimized for low page load time...
     // Make web-ext lint happy, never use a var for import.
