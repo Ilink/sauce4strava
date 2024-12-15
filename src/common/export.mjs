@@ -1,7 +1,7 @@
 /* global sauce */
 
 import * as fit from '../common/jsfit/fit.mjs';
-
+import * as luxon from '/src/common/luxon.js';
 
 class Serializer {
     constructor({name, desc, type, date, laps, athlete}) {
@@ -29,10 +29,11 @@ class Serializer {
     }
 
     getFilename(name) {
-        name = name || this.activity.name;
-        name = name.replace(/\s/g, '_');
-        name = name.replace(/\.+$/g, '');
-        name = name.replace(/\./g, '_');
+        if(!name){
+            let date = luxon.DateTime.fromJSDate(this.activity.date)
+                .setZone("utc", { keepLocalTime: true });
+            name = `${this.athlete.name}_${date.toISO()}`;
+        }
         return `${name}.${this.fileExt}`;
     }
 
